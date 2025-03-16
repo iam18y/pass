@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chrome Locked</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      overflow: hidden; /* Prevent scrolling */
+    }
+    .container {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      padding: 30px;
+      width: 400px;
+      max-width: 90%;
+      text-align: center;
+      position: relative;
+    }
+    .logo {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 20px;
+    }
+    h1 {
+      color: #333;
+      margin-bottom: 30px;
+      font-size: 24px;
+    }
+    .form-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #555;
+      font-weight: bold;
+      font-size: 14px;
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 16px;
+      box-sizing: border-box;
+      transition: border-color 0.3s;
+    }
+    input:focus {
+      border-color: #4a6cf7;
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(74, 108, 247, 0.1);
+    }
+    button {
+      background-color: #4a6cf7;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 12px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      width: 100%;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #3a5cf7;
+    }
+    .error-message {
+      color: #e74c3c;
+      font-size: 14px;
+      margin-top: 5px;
+      display: none;
+    }
+    .attempts-left {
+      color: #777;
+      font-size: 13px;
+      margin-top: 10px;
+      font-style: italic;
+    }
+    .forgot-password {
+      color: #4a6cf7;
+      text-decoration: none;
+      font-size: 14px;
+      margin-top: 15px;
+      display: none;
+      cursor: pointer;
+    }
+    .forgot-password:hover {
+      text-decoration: underline;
+    }
+    .lock-icon {
+      margin-bottom: 20px;
+      font-size: 48px;
+      color: #ff5252;
+    }
+    .back-to-password {
+      color: #4a6cf7;
+      text-decoration: none;
+      font-size: 14px;
+      display: inline-block;
+      margin-top: 15px;
+      cursor: pointer;
+    }
+    .back-to-password:hover {
+      text-decoration: underline;
+    }
+    .security-banner {
+      background-color: #ff5252;
+      color: white;
+      padding: 10px;
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      border-radius: 4px;
+    }
+    .pulse-animation {
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="security-banner pulse-animation">
+      PASSFORB SECURITY LOCK - 100% SECURE
+    </div>
+    <div class="lock-icon">🔒</div>
+    <h1>Chrome Browser is Locked</h1>
+    
+    <!-- Password Form -->
+    <div id="passwordForm">
+      <div class="form-group">
+        <label for="password">Enter your password to unlock Chrome:</label>
+        <input type="password" id="password" placeholder="Your password" autocomplete="off">
+        <div id="errorMessage" class="error-message">Incorrect password</div>
+        <div id="attemptsLeft" class="attempts-left"></div>
+      </div>
+      <button id="unlockBtn">Unlock Chrome</button>
+      <div id="forgotPassword" class="forgot-password">Forgot password?</div>
+    </div>
+    
+    <!-- Recovery Form (initially hidden) -->
+    <div id="recoveryForm" style="display: none;">
+      <div class="form-group">
+        <label for="recoveryId">Recovery Identifier:</label>
+        <input type="text" id="recoveryId" placeholder="Enter your recovery identifier" autocomplete="off">
+      </div>
+      <div class="form-group">
+        <label for="newPassword">New Password:</label>
+        <input type="password" id="newPassword" placeholder="Enter a new password" autocomplete="off">
+        <div id="recoveryErrorMessage" class="error-message"></div>
+      </div>
+      <button id="resetPasswordBtn">Reset Password & Unlock</button>
+      <div id="backToPasswordBtn" class="back-to-password">Back to password entry</div>
+    </div>
+  </div>
+  
+  <script src="lock.js"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "PassForB - Chrome Password Lock",
+  "version": "1.0",
+  "description": "A 100% secure password lock extension for Chrome that works completely offline and locally",
+  "permissions": [
+    "tabs",
+    "storage",
+    "webNavigation",
+    "scripting",
+    "windows"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/lock_icon_16x16.png",
+      "48": "icons/lock_icon_48x48.png",
+      "128": "icons/lock_icon_128x128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/lock_icon_16x16.png",
+    "48": "icons/lock_icon_48x48.png",
+    "128": "icons/lock_icon_128x128.png"
+  }
+}
